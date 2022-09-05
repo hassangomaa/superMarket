@@ -1,12 +1,38 @@
-@extends('layouts.app')
-@section('content')
 
+{{--@extends('layouts.navigation')--}}
 
-
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid"> <a class="navbar-brand" href="/">market</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item"> <a class="nav-link active" aria-current="page" href="/">ORDER</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="/logs">order LOGS</a> </li>
+                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="/maange" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false"> MANGE orders </a>
+
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <style>
+        body {
+            background: #eee
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=1024">
@@ -138,7 +164,7 @@
 </head>
 <body class="auth">
 <div id="wrapper" class="toggled">
-    /////////////////////////////////////////
+    ////////////////////////////////////
 
 
     /////////////////////////////////
@@ -219,7 +245,7 @@
 
 
 
-
+            @dd(Auth:: )
 
             <div class="container-fluid neworder">
                 <div class="row">
@@ -230,7 +256,8 @@
                             <center><img class="section-banner-icon" width="185"  align="right" dir="ltr" src="https://res.cloudinary.com/smmegyfans-com/image/upload/v1658844050/smmegyfans/n5ej4gwfxf68goby_j4nhi7.png" alt="section-icon"></center>
                             <!-- /SECTION BANNER ICON -->
                             <!-- SECTION BANNER TITLE -->
-                            <center><p style="font-weight:700;font-size:30px;color:#fff"class="section-banner-title">hassangomaa974 ,مرحباً</p></center>
+                            <center><p style="font-weight:700;font-size:30px;color:#fff"class="section-banner-title"> {{Auth::user()->name }}
+                                     ,مرحباً</p></center>
 
 
                             <!-- /SECTION BANNER TITLE -->
@@ -674,7 +701,6 @@
 
 
 
-
 <style>
     .whatsapp-container{padding:24px}.whatsapp-button{width:60px;height:60px;bottom:40px;right:40px;background-color:#25d366;color:#FFF!important;border-radius:50px;text-align:center;font-size:30px;box-shadow:2px 2px 3px #999;display:flex;align-items:center;justify-content:center;text-decoration:none!important;-webkit-transition:all 0.3s ease;-moz-transition:all 0.3s ease;-o-transition:all 0.3s ease;-ms-transition:all 0.3s ease;transition:all 0.3s ease;transform:scale(0.9)}.whatsapp-button:hover{transform:scale(1);background-color:#1fcc5f}
 </style>
@@ -686,341 +712,10 @@
     </div>
 </div>
 
-<script type="text/javascript" src="https://cdn.mypanel.link/libs/jquery/1.12.4/jquery.min.js">
-</script>
-<script type="text/javascript" src="https://cdn.mypanel.link/global/aknio8ec1fpphc0p.js">
-</script>
-<script type="text/javascript" src="https://cdn.mypanel.link/global/nfos6j9mo1on7ksz.js">
-</script>
-<script type="text/javascript" src="https://cdn.mypanel.link/global/t9wyecf8ti7h31qa.js">
-</script>
-<script type="text/javascript" src="https://cdn.mypanel.link/global/bsfhjacqw299fzni.js">
-</script>
-<script type="text/javascript" src="https://cdn.mypanel.link/global/losuh2ycsnzaoh4x.js">
-</script>
-<script type="text/javascript" src="https://cdn.mypanel.link/global/c08jh4sc7xh7y9lf.js">
-</script>
-<script type="text/javascript" >
-    window.modules.layouts = {"theme_id":1,"auth":1,"live":true,"csrftoken":"ZkHt7l9WabWnMnrDXLozxzaKYE8FRdGAXYX6sAE12XcSMbuJOz0T0MYALfYNiWn2c8EGfVMGsuEz65PFcQWBFg=="};   </script>
-
-<script type="text/javascript" >
-    window.modules.select = [];   </script>
-<script type="text/javascript" >
-</script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.social-slider').slick({
-            dots: false,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 0,
-            speed: 9000,
-            cssEase: 'linear',
-            responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 2,
-                    infinite: true,
-                    dots: false,
-                    autoplaySpeed: 0,
-                    speed: 9000
-                }
-            }, {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 2
-                }
-            }, {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            }
-            ]
-        });
-
-    });
-
-    $('.feature-slider').slick({
-        dots: false,
-        infinite: false,
-        speed: 300,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        appendArrows: $(".feature-slider-nav"),
-        nextArrow: '<button class="right-arrow"><i class="fas fa-long-arrow-alt-right"></i></button>',
-        prevArrow: '<button class="left-arrow"><i class="fas fa-long-arrow-alt-left"></i></button>',
-        responsive: [{
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: false
-            }
-        }, {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-        ]
-    });
-
-    $('.slider1').slick({
-        dots: false,
-        infinite: false,
-        speed: 300,
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        appendArrows: $(".slider1-nav"),
-        nextArrow: '<button class="right-arrow"><i class="fas fa-long-arrow-alt-right"></i></button>',
-        prevArrow: '<button class="left-arrow"><i class="fas fa-long-arrow-alt-left"></i></button>',
-        responsive: [{
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                infinite: true,
-                dots: false
-            }
-        }, {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-        ]
-    });
-
-    $('.slider2').slick({
-        dots: false,
-        infinite: false,
-        speed: 300,
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        appendArrows: $(".slider2-nav"),
-        nextArrow: '<button class="right-arrow"><i class="fas fa-long-arrow-alt-right"></i></button>',
-        prevArrow: '<button class="left-arrow"><i class="fas fa-long-arrow-alt-left"></i></button>',
-        responsive: [{
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                infinite: true,
-                dots: false
-            }
-        }, {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-        ]
-    });
-
-    $('.slider3').slick({
-        dots: false,
-        infinite: false,
-        speed: 300,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        appendArrows: $(".slider3-nav"),
-        nextArrow: '<button class="right-arrow"><i class="fas fa-long-arrow-alt-right"></i></button>',
-        prevArrow: '<button class="left-arrow"><i class="fas fa-long-arrow-alt-left"></i></button>',
-        responsive: [{
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: false
-            }
-        }, {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-        ]
-    });
-
-    $('.fb-slider').slick({
-        dots: true,
-        infinite: false,
-        arrows: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: true,
-        cssEase: 'linear',
-        appendArrows: $(".fb-slider-nav"),
-        nextArrow: '<button class="right-arrow"><i class="fas fa-angle-right"></i></button>',
-        prevArrow: '<button class="left-arrow"><i class="fas fa-angle-left"></i></button>'
-
-    });
-
-    $('.insta-slider').slick({
-        dots: true,
-        infinite: false,
-        arrows: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: true,
-        cssEase: 'linear',
-        appendArrows: $(".insta-slider-nav"),
-        nextArrow: '<button class="right-arrow"><i class="fas fa-angle-right"></i></button>',
-        prevArrow: '<button class="left-arrow"><i class="fas fa-angle-left"></i></button>'
-
-    });
-
-    $('.twit-slider').slick({
-        dots: true,
-        infinite: false,
-        arrows: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: true,
-        cssEase: 'linear',
-        appendArrows: $(".twit-slider-nav"),
-        nextArrow: '<button class="right-arrow"><i class="fas fa-angle-right"></i></button>',
-        prevArrow: '<button class="left-arrow"><i class="fas fa-angle-left"></i></button>'
-
-    });
-
-    $('.yout-slider').slick({
-        dots: true,
-        infinite: false,
-        arrows: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: true,
-        cssEase: 'linear',
-        appendArrows: $(".yout-slider-nav"),
-        nextArrow: '<button class="right-arrow"><i class="fas fa-angle-right"></i></button>',
-        prevArrow: '<button class="left-arrow"><i class="fas fa-angle-left"></i></button>'
-
-    });
-
-    $('.soun-slider').slick({
-        dots: true,
-        infinite: false,
-        arrows: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: true,
-        cssEase: 'linear',
-        appendArrows: $(".soun-slider-nav"),
-        nextArrow: '<button class="right-arrow"><i class="fas fa-angle-right"></i></button>',
-        prevArrow: '<button class="left-arrow"><i class="fas fa-angle-left"></i></button>'
-    });
-
-    $(document).ready(function() {
-        $('.video-slider').slick({
-            dots: false,
-            infinite: false,
-            speed: 300,
-            autoplay: false,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            centerMode: true,
-            centerPadding: 25,
-            appendArrows: $(".video-nav"),
-            nextArrow: '<button class="right-arrow"><i class="fas fa-long-arrow-alt-right"></i></button>',
-            prevArrow: '<button class="left-arrow"><i class="fas fa-long-arrow-alt-left"></i></button>'
-
-        });
-
-        $('.likes-row-slider').slick({
-            dots: false,
-            infinite: false,
-            speed: 100,
-            autoplay: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            appendArrows: $(".likes-row-nav"),
-            nextArrow: '<button class="right-arrow"><i class="fas fa-long-arrow-alt-right"></i></button>',
-            prevArrow: '<button class="left-arrow"><i class="fas fa-long-arrow-alt-left"></i></button>'
-
-        });
-    });
-
-</script>
-
-<script>
-    $(function() {$('[data-toggle="popover"]').popover()});
-
-    $(document).ready(function() {
-        var str = $('#tickets .badge').text();
-        $("span.ticket-count").text(str);
-        if ($("span.ticket-count").text(str) < 1 || str == "") {
-            $("span.ticket-count").addClass('hide');
-        }
-
-        $(".nav-btn").click(function() {
-            $('#wrapper').toggleClass("toggled");
-        });
-    });
-
-    $("#menu-toggle, #menu-toggle2").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    if ($(window).width() < 991) {
-        $('#wrapper').removeClass('toggled');
-    } else {
-        $('#wrapper').addClass('toggled');
-    }
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    });
-</script>
 
 
 
-
-<ul class="nav navbar-nav navbar-right navbar-right-block">
-
+<ul class="nav navbar-nav navbar-right navbar-right-block"></ul>
 
 
     <li>
@@ -1036,4 +731,5 @@
 </body>
 </html>
 
-@endsection
+
+

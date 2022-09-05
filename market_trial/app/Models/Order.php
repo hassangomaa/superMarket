@@ -20,5 +20,9 @@ class Order extends Model
     {
         return $this->hasMany(ServiceOrder::class);
     }
+    public function userorder(): BelongsTo
+    {
+        return $this->hasMany(UserOrder::class);
+    }
 
 }

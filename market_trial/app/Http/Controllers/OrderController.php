@@ -12,9 +12,14 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( )
     {
         //
+        return view('/market/order_request');
+//        return view('/market/order_request', [
+//            'admin' => $admin
+//        ]);
+//        return "HOLLA!!";
     }
 
     /**

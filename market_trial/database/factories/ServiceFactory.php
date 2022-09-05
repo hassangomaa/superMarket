@@ -20,10 +20,10 @@ class ServiceFactory extends Factory
             //
             'name' => fake()->name(),
             'price' => fake()->randomDigitNotZero() ,
-            'mini' => fake()->name(),
-            'max' => fake()->name(),
-            'timeaverage' => fake()->name(),
-            'details' => fake()->name(),
+            'mini' => fake()->randomDigitNotZero() ,
+            'max' => fake()->randomDigitNotZero(),
+            'timeaverage' => fake()->dayOfWeek ,
+            'details' => fake()->text ,
 
         ];
     }

@@ -13,26 +13,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    // return "HOLAA";
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
-//Route::group( [
-//    'prefix' => 'market'
-//], function (){
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/market', function () {
+    return view('market/order_request');
+})->middleware(['auth'])->name('order.index');
 
 
-    Route::get('/', function () {
-       // return "HOLAA";
-        return view('/market/order_request');
-    });
-    Route::get('/logs', function () {
-        return view('/market/orderlogs');
-    });
-    Route::get('/manage', function () {
-        return view('/market/ordermanage');
-    });
 //
+//Route::group( [
+//    'middleware' => ['auth'],
+//    'prefix' => 'market',
+//    'namespace' => 'market',
+//
+//], function (){
+//
+//
+//Route::get('/', [\App\Http\Controllers\OrderController::class,'index'])->name('order.index') ;
+//Route::get('/logs', function () {
+//    return view('/market/orderlogs');
+//});
+//Route::get('/manage', function () {
+//    return view('/market/ordermanage');
+//});
+////
 //});
 
+
+require __DIR__.'/auth.php';
