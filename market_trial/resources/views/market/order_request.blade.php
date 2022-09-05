@@ -312,7 +312,7 @@
                                             <h4 class="media-heading" style="margin-left: 50px;">الطلبات</h4>
                                         </center>
                                         <center>
-                                            <p style="margin-left: 50px;" class="media-desc">{{Auth::user()->orderscount }}</p>
+{{--                                            <p style="margin-left: 50px;" class="media-desc">{{Auth::user()->orderscount }}</p>--}}
                                         </center>
                                     </div>
                                 </div>
@@ -415,7 +415,7 @@
 
                                             <select class="form-control" id="orderform-category" name="OrderForm[category]">
                                                 @forelse($orders as $order)
-                                                <option value="{{$order->name}}"  selected  align="right" dir="rtl" >{{$order->name}} 💰 ايرادات يوتيوب </option>
+                                                <option value=""  selected  align="right" dir="rtl" >{{$order->name}} 💰   </option>
                                                 @empty
                                                 @endforelse
                                             </select>
@@ -424,7 +424,15 @@
                                         <div class="form-group">
                                             ///////////////////////////////////////////////////////////////
                                             <label for="orderform-service" class="control-label">الخدمات</label>
-                                            <select id="orderform-service" class="form-control" name="OrderForm[service]"></select>
+                                            <select id="orderform-service" class="form-control" name="OrderForm[service]">
+
+                                            @forelse($services as $service)
+
+                                                <option value=""  selected  align="right" dir="rtl" >{{$service->name}} 💰💰   </option>
+
+                                            @empty
+                                            @endforelse
+                                            </select>
                                         </div>
 
 
@@ -453,7 +461,7 @@
                                         <div id="fields"></div>
                                         <div class="form-group">
                                             <label for="charge" class="control-label">السعر</label>
-                                            <input type="text" class="form-control" id="charge" value="" readonly>
+                                            <input type="text" class="form-control" id="charge" value="{{$service->price}}" readonly>
                                         </div>
                                         <div class="card-top-blk">
                                             <h4><span id="serviceId" style="font-weight: bold;"><value>

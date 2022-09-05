@@ -18,12 +18,10 @@ class OrderFactory extends Factory
     {
         return [
             'name' => "⭐ تفعيل يوتيوب ",
-            'details' => "♔ البدأ : 1 ~ 120 ساعة
-♘ السرعة : +500
-❀ الضمان : نعم
-♙ الجودة : حقيقية
-♖ السقوط : عدم السقوط" ,
+            'details' => "♔ البدأ : 1 ~ 120 ساعة" ,
+            'status' => "قيد الانتظار",
             'link' => fake()->address(),
+            'price' => fake()->randomDigitNotZero(),
             'quantity' => fake()->randomDigitNotZero(),
 
             //

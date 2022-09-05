@@ -24,6 +24,9 @@ Route::get('/dashboard', function () {
 Route::get('/market', [\App\Http\Controllers\OrderController::class,'index' ]
 )->middleware(['auth'])->name('order.index');
 
+Route::get('/logs', [\App\Http\Controllers\OrderController::class,'logs' ]
+)->middleware(['auth'])->name('order.logs');
+
 
 //
 //Route::group( [
