@@ -13,12 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('order_request')->name('order');
-});
-Route::get('/logs', function () {
-    return view('orderlogs')->name('order.log');
-});
-Route::get('/manage', function () {
-    return view('ordermanage')->name('order.manage');
-});
+//Route::get('/', function () {
+//    // return "HOLAA";
+//    return view('welcome');
+//});
+
+//Route::group( [
+//    'prefix' => 'market'
+//], function (){
+
+
+    Route::get('/', function () {
+       // return "HOLAA";
+        return view('/market/order_request');
+    });
+    Route::get('/logs', function () {
+        return view('/market/orderlogs');
+    });
+    Route::get('/manage', function () {
+        return view('/market/ordermanage');
+    });
+//
+//});
+

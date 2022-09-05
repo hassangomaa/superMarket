@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MenuService>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\UserOrder>
  */
-class MenuServiceFactory extends Factory
+class UserOrderFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,6 +18,9 @@ class MenuServiceFactory extends Factory
     {
         return [
             //
+            'userid' => fake()->randomDigitNotZero() ,
+            'orderid' => fake()->randomDigitNotZero() ,
+
         ];
     }
 }

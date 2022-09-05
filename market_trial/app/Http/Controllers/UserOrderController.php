@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MenuService;
+use App\Models\UserOrder;
 use Illuminate\Http\Request;
 
-class MenuServiceController extends Controller
+class UserOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class MenuServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\MenuService  $menuService
+     * @param  \App\Models\UserOrder  $userOrder
      * @return \Illuminate\Http\Response
      */
-    public function show(MenuService $menuService)
+    public function show(UserOrder $userOrder)
     {
         //
     }
@@ -52,10 +52,10 @@ class MenuServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\MenuService  $menuService
+     * @param  \App\Models\UserOrder  $userOrder
      * @return \Illuminate\Http\Response
      */
-    public function edit(MenuService $menuService)
+    public function edit(UserOrder $userOrder)
     {
         //
     }
@@ -64,10 +64,10 @@ class MenuServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MenuService  $menuService
+     * @param  \App\Models\UserOrder  $userOrder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MenuService $menuService)
+    public function update(Request $request, UserOrder $userOrder)
     {
         //
     }
@@ -75,10 +75,10 @@ class MenuServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\MenuService  $menuService
+     * @param  \App\Models\UserOrder  $userOrder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MenuService $menuService)
+    public function destroy(UserOrder $userOrder)
     {
         //
     }

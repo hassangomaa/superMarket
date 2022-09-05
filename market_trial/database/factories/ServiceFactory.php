@@ -18,6 +18,13 @@ class ServiceFactory extends Factory
     {
         return [
             //
+            'name' => fake()->name(),
+            'price' => fake()->randomDigitNotZero() ,
+            'mini' => fake()->name(),
+            'max' => fake()->name(),
+            'timeaverage' => fake()->name(),
+            'details' => fake()->name(),
+
         ];
     }
 }
