@@ -20,6 +20,8 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'balance' => fake()->randomDigitNotZero() ,
+            'orderscount' => fake()->randomDigitNotZero() ,
+
             'totalpaid' => fake()->randomDigitNotZero(),
             'email' => 'admin@gmail.com' ,//fake()->safeEmail(),
             'email_verified_at' => now(),

@@ -17,8 +17,12 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
-            'details' => fake()->text(),
+            'name' => "⭐ تفعيل يوتيوب ",
+            'details' => "♔ البدأ : 1 ~ 120 ساعة
+♘ السرعة : +500
+❀ الضمان : نعم
+♙ الجودة : حقيقية
+♖ السقوط : عدم السقوط" ,
             'link' => fake()->address(),
             'quantity' => fake()->randomDigitNotZero(),
 

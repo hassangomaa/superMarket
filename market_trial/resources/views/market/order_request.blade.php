@@ -245,7 +245,7 @@
 
 
 
-            @dd(Auth:: )
+{{--            @dd(Auth:: )--}}
 
             <div class="container-fluid neworder">
                 <div class="row">
@@ -256,7 +256,7 @@
                             <center><img class="section-banner-icon" width="185"  align="right" dir="ltr" src="https://res.cloudinary.com/smmegyfans-com/image/upload/v1658844050/smmegyfans/n5ej4gwfxf68goby_j4nhi7.png" alt="section-icon"></center>
                             <!-- /SECTION BANNER ICON -->
                             <!-- SECTION BANNER TITLE -->
-                            <center><p style="font-weight:700;font-size:30px;color:#fff"class="section-banner-title"> {{Auth::user()->name }}
+{{--                            <center><p style="font-weight:700;font-size:30px;color:#fff"class="section-banner-title"> {{Auth::user()->name }}--}}
                                      ,مرحباً</p></center>
 
 
@@ -312,7 +312,7 @@
                                             <h4 class="media-heading" style="margin-left: 50px;">الطلبات</h4>
                                         </center>
                                         <center>
-                                            <p style="margin-left: 50px;" class="media-desc">0</p>
+                                            <p style="margin-left: 50px;" class="media-desc">{{Auth::user()->orderscount }}</p>
                                         </center>
                                     </div>
                                 </div>
@@ -341,7 +341,7 @@
                                             <h4 class="media-heading" style="margin-left: 50px;">رصيدك</h4>
                                         </center>
                                         <center>
-                                            <p style="margin-left: 50px;" class="media-desc">$0.00 </p>
+                                            <p style="margin-left: 50px;" class="media-desc">${{Auth::user()->balance }}.00 </p>
                                         </center>
                                     </div>
                                 </div>
@@ -358,7 +358,7 @@
                                             <h4 class="media-heading" style="margin-left: 50px;">المنفق</h4>
                                         </center>
                                         <center>
-                                            <p style="margin-left: 50px;" class="media-desc">$0</p>
+                                            <p style="margin-left: 50px;" class="media-desc">${{Auth::user()->totalpaid }}</p>
                                         </center>
                                     </div>
                                 </div>
@@ -373,21 +373,7 @@
 
 
 
-            <div class="container-fluid neworder">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="dash-page-head">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="bnr-wrap">
-                                        <img class="img-responsive" src="https://res.cloudinary.com/smmegyfans-com/image/upload/v1653496446/smmegyfans/p6a2emzqkw23yi80-Recovered_lcn9vi_igdos1_fz3dtq.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <br>
             <br>
 
@@ -424,107 +410,16 @@
                                         <div class="form-group">
                                             /////////////////////////////////////////////////////////////////////////////////////////////
                                             <label for="orderform-category" class="control-label">القائمة</label>
+
+{{--                                            @dd($orders);--}}
+
                                             <select class="form-control" id="orderform-category" name="OrderForm[category]">
-                                                <option value="52"  selected  align="right" dir="rtl" > 💰 ايرادات يوتيوب</option>
-                                                <option value="53454"  align="right" dir="rtl" > 🤫 على قد الجيب</option>
-                                                <option value="3"  align="right" dir="rtl" > 💡 قنوات يوتيوب</option>
-                                                <option value="52731"  align="right" dir="rtl" > 🖤 العفريت يوتيوب</option>
-                                                <option value="40963"  align="right" dir="rtl" > ⭐ خدمات توثيق</option>
-                                                <option value="21270"  align="right" dir="rtl" > ⭐ خدمات آر دي بي</option>
-                                                <option value="173"  align="right" dir="rtl" > ⭐ خدمات الإبلاغ</option>
-                                                <option value="38593"  align="right" dir="rtl" > ⭐ تفعيل يوتيوب</option>
-                                                <option value="38594"  align="right" dir="rtl" > ⭐ تفعيل فيسبوك</option>
-                                                <option value="38791"  align="right" dir="rtl" > ⭐ باقات انستغرام</option>
-                                                <option value="1345"  align="right" dir="rtl" > ⭐ مصريين يوتيوب</option>
-                                                <option value="92"  align="right" dir="rtl" > ⭐ مصريين انستغرام</option>
-                                                <option value="91"  align="right" dir="rtl" > ⭐ مصريين فيسبوك</option>
-                                                <option value="23884"  align="right" dir="rtl" > 🦁 مشتركين سريع يوتيوب</option>
-                                                <option value="6746"  align="right" dir="rtl" > 🦁 مشتركين بطئ يوتيوب</option>
-                                                <option value="7"  align="right" dir="rtl" > ⌚ ساعات مشاهدة يوتيوب</option>
-                                                <option value="29978"  align="right" dir="rtl" > ⏰ مشاهدات ساعات يوتيوب</option>
-                                                <option value="41364"  align="right" dir="rtl" > 🕰️ متوسط عالي يوتيوب</option>
-                                                <option value="42377"  align="right" dir="rtl" > 👀 ممول ديسكفري يوتيوب</option>
-                                                <option value="13698"  align="right" dir="rtl" > 👀 اعلان موقع يوتيوب</option>
-                                                <option value="9494"  align="right" dir="rtl" > 👀 إستهداف محتوى يوتيوب</option>
-                                                <option value="9493"  align="right" dir="rtl" > 👀 إستهداف اللغة يوتيوب</option>
-                                                <option value="9492"  align="right" dir="rtl" > 👀 إستهداف بلدان يوتيوب</option>
-                                                <option value="134"  align="right" dir="rtl" > 👀 إستهداف ترند يوتيوب</option>
-                                                <option value="14749"  align="right" dir="rtl" > 👀 مشاهدات مميزة يوتيوب</option>
-                                                <option value="6225"  align="right" dir="rtl" > 👀 مشاهدات مقترح يوتيوب</option>
-                                                <option value="15"  align="right" dir="rtl" > 👀 مشاهدات مقترح يوتيوب</option>
-                                                <option value="20"  align="right" dir="rtl" > 👀 مشاهدات شورتس يوتيوب</option>
-                                                <option value="21"  align="right" dir="rtl" > 😻 إعجابات يوتيوب</option>
-                                                <option value="22"  align="right" dir="rtl" > 💬 تعليقات يوتيوب</option>
-                                                <option value="141"  align="right" dir="rtl" > 💫 مشاركات يوتيوب</option>
-                                                <option value="24"  align="right" dir="rtl" > 🔴 بث مباشر يوتيوب</option>
-                                                <option value="30663"  align="right" dir="rtl" > 🔴 بث مباشر يوتيوب</option>
-                                                <option value="25936"  align="right" dir="rtl" > 👩🏻‍🎤 باكجات إنستغرام</option>
-                                                <option value="32397"  align="right" dir="rtl" > 👩🏻‍🎤 متابعين إنستغرام</option>
-                                                <option value="25"  align="right" dir="rtl" > 👩🏻‍🎤 إستهداف إنستغرام</option>
-                                                <option value="29"  align="right" dir="rtl" > 👩🏻‍🎤 مشاهدات إنستغرام</option>
-                                                <option value="45272"  align="right" dir="rtl" > 👩🏻‍🎤 تي في إنستغرام</option>
-                                                <option value="45271"  align="right" dir="rtl" > 👩🏻‍🎤 ريل إنستغرام</option>
-                                                <option value="28"  align="right" dir="rtl" > 👩🏻‍🎤 إعجابات إنستغرام</option>
-                                                <option value="35766"  align="right" dir="rtl" > 👩🏻‍🎤 إعجابات رخيصة إنستغرام</option>
-                                                <option value="25935"  align="right" dir="rtl" > 👩🏻‍🎤 إعجابات الاكسبلورإنستغرام</option>
-                                                <option value="25930"  align="right" dir="rtl" > 👩🏻‍🎤 تعليقات اكونتات كبيرة إنستغرام</option>
-                                                <option value="30"  align="right" dir="rtl" > 👩🏻‍🎤 تعليقات إنستغرام</option>
-                                                <option value="15049"  align="right" dir="rtl" > 👨‍🎤 إعجابات صفحة فيسبوك</option>
-                                                <option value="15346"  align="right" dir="rtl" > 👨‍🎤 متابعين حساب فيسبوك</option>
-                                                <option value="3137"  align="right" dir="rtl" > 👨‍🎤 أعضاء مجموعة فيسبوك</option>
-                                                <option value="35"  align="right" dir="rtl" > 👨‍🎤 إعجابات منشور فيسبوك</option>
-                                                <option value="51539"  align="right" dir="rtl" > 👨‍🎤 خدمات ريلز فيسبوك</option>
-                                                <option value="16554"  align="right" dir="rtl" > 👨‍🎤 مشاهدات فيديو فيسبوك</option>
-                                                <option value="8465"  align="right" dir="rtl" > 👨‍🎤 توصيات وتقييمات فيسبوك</option>
-                                                <option value="3963"  align="right" dir="rtl" > 👨‍🎤 مشاركات فيسبوك</option>
-                                                <option value="17015"  align="right" dir="rtl" > 👨‍🎤 تعليقات فيسبوك</option>
-                                                <option value="38"  align="right" dir="rtl" > 👨‍🎤 بث مباشر فيسبوك</option>
-                                                <option value="47270"  align="right" dir="rtl" > 🐦 خدمات طارئة تويتر</option>
-                                                <option value="47266"  align="right" dir="rtl" > 🐦 متابعين تويتر</option>
-                                                <option value="47265"  align="right" dir="rtl" > 🐦 مشاهدات تويتر</option>
-                                                <option value="47267"  align="right" dir="rtl" > 🐦 إعجابات تويتر</option>
-                                                <option value="47273"  align="right" dir="rtl" > 🐦 باكجات تويتر</option>
-                                                <option value="47274"  align="right" dir="rtl" > 🐦 منشن تويتر</option>
-                                                <option value="47268"  align="right" dir="rtl" > 🐦 ريتويت تويتر</option>
-                                                <option value="47275"  align="right" dir="rtl" > 🐦 تصويت تويتر</option>
-                                                <option value="47276"  align="right" dir="rtl" > 🐦 هاشتاق تريند تويتر</option>
-                                                <option value="18559"  align="right" dir="rtl" > 🎶 متابعين تيك توك</option>
-                                                <option value="18558"  align="right" dir="rtl" > 🎶 مشاهدات تيك توك</option>
-                                                <option value="49884"  align="right" dir="rtl" > 🎶 مستهدفة تيك توك</option>
-                                                <option value="18560"  align="right" dir="rtl" > 🎶 إعجابات تيك توك</option>
-                                                <option value="49885"  align="right" dir="rtl" > 🎶 شيراكسبلور تيك توك</option>
-                                                <option value="18562"  align="right" dir="rtl" > 🎶 مشاركات تيك توك</option>
-                                                <option value="65"  align="right" dir="rtl" > 💌 متابعين تليجرام</option>
-                                                <option value="5214"  align="right" dir="rtl" > 💌 مشاهدات تليجرام</option>
-                                                <option value="37242"  align="right" dir="rtl" > 💌 مشاهدات اشتراك تليجرام</option>
-                                                <option value="37238"  align="right" dir="rtl" > 💌 مشاهدات تلقائية للمنشورات الجديدة تليجرام</option>
-                                                <option value="37241"  align="right" dir="rtl" > 💌 تفاعل تليجرام</option>
-                                                <option value="9190"  align="right" dir="rtl" > 🎥 كواي</option>
-                                                <option value="46813"  align="right" dir="rtl" > 🐼 لينكد ان</option>
-                                                <option value="46814"  align="right" dir="rtl" > 🐼 لينكد ان - امريكا</option>
-                                                <option value="7463"  align="right" dir="rtl" > 🎮 ديسكورد</option>
-                                                <option value="28447"  align="right" dir="rtl" > 🌎 تقييم جوجل</option>
-                                                <option value="93"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من حول العالم</option>
-                                                <option value="94"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من الولايات المتحدة</option>
-                                                <option value="95"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من المملكة المتحدة</option>
-                                                <option value="96"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من ألمانيا</option>
-                                                <option value="97"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من هولندا</option>
-                                                <option value="98"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من كندا</option>
-                                                <option value="99"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من فيتنام</option>
-                                                <option value="100"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من روسيا</option>
-                                                <option value="101"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من رومانيا</option>
-                                                <option value="102"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من سنغافورة</option>
-                                                <option value="103"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من تايوان</option>
-                                                <option value="104"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من تايلاند</option>
-                                                <option value="106"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من كوريا الجنوبية</option>
-                                                <option value="107"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من الهند</option>
-                                                <option value="108"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من البرازيل</option>
-                                                <option value="109"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من تركيا</option>
-                                                <option value="112"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من فيتنام</option>
-                                                <option value="116"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من اليابان</option>
-                                                <option value="117"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من إندونيسيا</option>
-                                                <option value="118"  align="right" dir="rtl" > 🌐 زيارات مواقع الويب من المغرب</option>
+                                                @forelse($orders as $order)
+                                                <option value="{{$order->name}}"  selected  align="right" dir="rtl" >{{$order->name}} 💰 ايرادات يوتيوب </option>
+                                                @empty
+                                                @endforelse
                                             </select>
+
                                         </div>
                                         <div class="form-group">
                                             ///////////////////////////////////////////////////////////////
@@ -561,9 +456,9 @@
                                             <input type="text" class="form-control" id="charge" value="" readonly>
                                         </div>
                                         <div class="card-top-blk">
-                                            <h4><span id="serviceId" style="font-weight: bold;"><value
+                                            <h4><span id="serviceId" style="font-weight: bold;"><value>
                                                     </value></span>
-                                                <value
+                                                <value>
                                                 </value></value> <value style="font-size: 15px;font-weight: 100;" id="serviceName"></value>
                                             </h4>
                                         </div>
@@ -596,6 +491,7 @@
                                         <br>
                                         <br>
                                         <br>
+                                        @csrf
 
                                     </form>
                                 </div>

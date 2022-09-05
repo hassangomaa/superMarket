@@ -21,9 +21,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/market', function () {
-    return view('market/order_request');
-})->middleware(['auth'])->name('order.index');
+Route::get('/market', [\App\Http\Controllers\OrderController::class,'index' ]
+)->middleware(['auth'])->name('order.index');
 
 
 //

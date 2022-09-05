@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -15,10 +16,11 @@ class OrderController extends Controller
     public function index( )
     {
         //
-        return view('/market/order_request');
-//        return view('/market/order_request', [
-//            'admin' => $admin
-//        ]);
+//        return view('/market/order_request');
+        return view('/market/order_request', [
+            'orders' => Order::all() ,
+            'services' => Service::all()
+        ]);
 //        return "HOLLA!!";
     }
 
