@@ -4,7 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+ use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 class UserOrder extends Model
 {
     use HasFactory;
@@ -23,7 +26,7 @@ class UserOrder extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function user(): HasMany
+    public function user()
     {
         return $this->hasMany(User::class);
     }
@@ -33,7 +36,7 @@ class UserOrder extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function order(): HasMany
+    public function order()
     {
         return $this->hasMany(Order::class);
     }

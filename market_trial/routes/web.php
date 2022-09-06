@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware(['auth']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -23,10 +23,23 @@ Route::get('/dashboard', function () {
 
 Route::get('/market', [\App\Http\Controllers\OrderController::class,'index' ]
 )->middleware(['auth'])->name('order.index');
+//
+//Route::get('/logs', [\App\Http\Controllers\OrderController::class,'logs' ]
+//)->middleware(['auth'])->name('order.logs');
+Route::get('/manage', [\App\Http\Controllers\OrderController::class,'edit' ]
+)->middleware(['auth'])->name('order.manage');
 
-Route::get('/logs', [\App\Http\Controllers\OrderController::class,'logs' ]
-)->middleware(['auth'])->name('order.logs');
+// course CRUD
+Route::middleware('auth')->group(function (){
 
+    Route::get('/order', [OrderController::class,'index' ])->name('order.logs');
+    Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
+    Route::get('/order/edit', [OrderController::class, 'edit'])->name('order.edit');
+     Route::post('/order/update/{id}', [OrderController::class, 'update'])->name('order.update');
+    Route::post('/order/destroy/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
+    Route::post('/order/create', [OrderController::class, 'store'])->name('order.store');
+
+});
 
 //
 //Route::group( [

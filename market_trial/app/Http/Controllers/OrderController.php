@@ -18,50 +18,46 @@ class OrderController extends Controller
      */
     public function index( )
     {
-        //
-//        return view('/market/order_request');
 
-        $id = Auth::id() ;
-//        dd(Order::all());
-//        dd(Order::find($id));
-        return view('/market/order_request', [
+        return view('/market/orderlogs', [
             'orders' => Order::all() ,
             'services' => Service::all(),
-            'serviceorder' => ServiceOrder::find($id) ,
-            'userorder' => UserOrder::find($id),
-
         ]);
-//        return "HOLLA!!";
-    }
+     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function logs()
-    {
-        //
-//        return view("/market/orderlogs");
-
-        $id = Auth::id() ;
-//        dd(Order::all());
-//        dd(Order::find($id));
-        return view('/market/orderlogs', [
-            'orders' => Order::all() ,
-            'services' => Service::all(),
-            'serviceorder' => ServiceOrder::find($id) ,
-            'userorder' => UserOrder::find($id),
-
-        ]);
-    }    /**
+//    public function logs()
+//    {
+//        //
+////        return view("/market/orderlogs");
+//
+//        $id = Auth::id() ;
+////        dd(Order::all());
+////        dd(Order::find($id));
+//        return view('/market/orderlogs', [
+//            'orders' => Order::all() ,
+//            'services' => Service::all(),
+//            'serviceorder' => ServiceOrder::find($id) ,
+//            'userorder' => UserOrder::find($id),
+//
+//        ]);
+//    }
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('/market/order_request', [
+            'orders' => Order::all() ,
+            'services' => Service::all(),
+        ]);
+
     }
 
     /**
@@ -95,6 +91,21 @@ class OrderController extends Controller
     public function edit(Order $order)
     {
         //
+        //
+//        return view('/market/order_request');
+
+        $id = Auth::id() ;
+//        dd(Order::all());
+//        dd(Order::find($id));
+        return view('/market/ordermanage', [
+            'orders' => Order::all() ,
+//            'services' => Service::all(),
+//            'serviceorder' => ServiceOrder::find($id) ,
+//            'userorder' => UserOrder::all() ,
+
+        ]);
+//        return "HOLLA!!";
+
     }
 
     /**
@@ -104,9 +115,13 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Order $id)
     {
         //
+        $order = Order::find($id);
+        $order->status = $request->status;
+        $order->save();
+        return redirect('/orderlogs');
     }
 
     /**
@@ -115,8 +130,11 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Order $id)
     {
         //
+        Course::where('id', $id)->delete();
+        return redirect('market.orderlogs');
+
     }
 }

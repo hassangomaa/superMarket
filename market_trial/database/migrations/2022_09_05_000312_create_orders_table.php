@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('details');
             $table->string('status')->default('قيد الانتظار');
-            $table->string('link');
+             $table->string('link');
             $table->integer('price')->unsigned();//number
             $table->integer('quantity')->unsigned();//number
 
