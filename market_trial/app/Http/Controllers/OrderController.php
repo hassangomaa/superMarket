@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderAdmin;
 use App\Models\Service;
 use App\Models\ServiceOrder;
 use App\Models\UserOrder;
@@ -19,7 +20,7 @@ class OrderController extends Controller
     public function index( )
     {
 
-        return view('/market/orderlogs', [
+        return view('/market/order/index', [
             'orders' => Order::all() ,
             'services' => Service::all(),
         ]);
@@ -53,7 +54,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('/market/order_request', [
+        return view('/market/order/create', [
             'orders' => Order::all() ,
             'services' => Service::all(),
         ]);
@@ -69,6 +70,9 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+        @dd($request);
+        Order::create($request->all());
+        return view('/market/order/index');
     }
 
     /**
@@ -80,6 +84,18 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         //
+        $id = Auth::id() ;
+//        dd(Order::all());
+//        dd(Order::find($id));
+        return view('/market/order/show', [
+            'menus' => OrderAdmin::all() ,
+//            'orders' => Order::all() ,
+//            'services' => Service::all(),
+//            'serviceorder' => ServiceOrder::find($id) ,
+//            'userorder' => UserOrder::all() ,
+
+        ]);
+//        return "HOLLA!!";
     }
 
     /**
@@ -97,11 +113,11 @@ class OrderController extends Controller
         $id = Auth::id() ;
 //        dd(Order::all());
 //        dd(Order::find($id));
-        return view('/market/ordermanage', [
+        return view('/market/order/edit', [
             'orders' => Order::all() ,
-//            'services' => Service::all(),
-//            'serviceorder' => ServiceOrder::find($id) ,
-//            'userorder' => UserOrder::all() ,
+            'services' => Service::all(),
+            'serviceorder' => ServiceOrder::find($id) ,
+            'userorder' => UserOrder::all() ,
 
         ]);
 //        return "HOLLA!!";
@@ -115,13 +131,15 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $id)
+    public function update(Request $request, $id)
     {
         //
+        dd(@$request);
         $order = Order::find($id);
-        $order->status = $request->status;
+        $order->status = "مكتمل جزئيا ";
+//        $order->status = $request->choice ;
         $order->save();
-        return redirect('/orderlogs');
+        return view('/market/order/index');
     }
 
     /**
@@ -130,11 +148,16 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $id)
+    public function destroy( $id)
     {
         //
-        Course::where('id', $id)->delete();
-        return redirect('market.orderlogs');
+        $order = Order::find($id);
+        $order->status = "ملغي ";
+        $order->save();
+        return view('/market/order/index');
+
+//        Order::where('id', $id)->delete();
+//        return redirect('market.orderlogs');
 
     }
 }

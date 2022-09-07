@@ -20,6 +20,7 @@ class ServiceOrderFactory extends Factory
             //
             'serviceid' => fake()->randomDigitNotZero() ,
             'userid' => fake()->randomDigitNotZero() ,
+            'orderid' => fake()->randomDigitNotZero() ,
 
         ];
     }

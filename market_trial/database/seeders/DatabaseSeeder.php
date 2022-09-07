@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Order;
+use App\Models\OrderAdmin;
 use App\Models\Service;
 use App\Models\ServiceOrder;
 use App\Models\UserOrder;
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
             Service::factory(10)->create();
             ServiceOrder::factory(10)->create();
             UserOrder::factory(10)->create();
+            OrderAdmin::factory(10)->create();
 
 
 

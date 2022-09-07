@@ -18,12 +18,12 @@ class ServiceFactory extends Factory
     {
         return [
             //
-            'name' => fake()->name(),
+            'name' => "🌐 زيارات مواقع الويب من حول العالم",
             'price' => fake()->randomDigitNotZero() ,
             'mini' => fake()->randomDigitNotZero() ,
             'max' => fake()->randomDigitNotZero(),
             'timeaverage' => fake()->dayOfWeek ,
-            'details' => fake()->text ,
+            'details' => "👨‍🎤 متابعين حساب فيسبوك",
 
         ];
     }

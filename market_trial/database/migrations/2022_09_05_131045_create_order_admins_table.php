@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('order_admins', function (Blueprint $table) {
             $table->id();
-            $table->string('adminid');
             $table->string('orderid');
+            $table->string('userid');
             $table->timestamps();
         });
     }

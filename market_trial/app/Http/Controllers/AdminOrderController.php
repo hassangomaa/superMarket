@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
-use App\Models\Service;
-use App\Models\UserOrder;
+use App\Models\AdminOrder;
 use Illuminate\Http\Request;
 
-class UserOrderController extends Controller
+class AdminOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +15,6 @@ class UserOrderController extends Controller
     public function index()
     {
         //
-        return view('/market/orderlogs', [
-            'orders' => Order::all() ,
-            'services' => Service::all(),
-        ]);
     }
 
     /**
@@ -31,11 +25,7 @@ class UserOrderController extends Controller
     public function create()
     {
         //
-//        return "holaa";
-        return view('/market/order_request', [
-            'orders' => Order::all() ,
-            'services' => Service::all(),
-        ]);}
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -45,25 +35,16 @@ class UserOrderController extends Controller
      */
     public function store(Request $request)
     {
-//        print_r($request);
-//        dd($request->get('name'));
-        $data=$request->all();
-        Order::create($data->validate([
-            'link'=> 'required',
-            'quantity' => 'required'
-        ]));
-        $order = Order::create($data);
-        $order->save();
-        return view("market/service/index");
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\UserOrder  $userOrder
+     * @param  \App\Models\AdminOrder  $adminOrder
      * @return \Illuminate\Http\Response
      */
-    public function show(UserOrder $userOrder)
+    public function show(AdminOrder $adminOrder)
     {
         //
     }
@@ -71,10 +52,10 @@ class UserOrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\UserOrder  $userOrder
+     * @param  \App\Models\AdminOrder  $adminOrder
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserOrder $userOrder)
+    public function edit(AdminOrder $adminOrder)
     {
         //
     }
@@ -83,10 +64,10 @@ class UserOrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\UserOrder  $userOrder
+     * @param  \App\Models\AdminOrder  $adminOrder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserOrder $userOrder)
+    public function update(Request $request, AdminOrder $adminOrder)
     {
         //
     }
@@ -94,10 +75,10 @@ class UserOrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\UserOrder  $userOrder
+     * @param  \App\Models\AdminOrder  $adminOrder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserOrder $userOrder)
+    public function destroy(AdminOrder $adminOrder)
     {
         //
     }

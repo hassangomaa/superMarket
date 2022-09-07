@@ -18,6 +18,12 @@ class OrderAdminFactory extends Factory
     {
         return [
             //
+//            'name' => "🌐 زيارات مواقع الويب من كندا< ",
+//            'name' => "🌐 زيارات مواقع الويب من كندا< ",
+//            'details' => "♔ البدأ : 1 ~ 120 ساعة" ,
+            'orderid' => fake()->randomDigitNotZero(),
+            'userid' => fake()->randomDigitNotZero(),
+
         ];
     }
 }
