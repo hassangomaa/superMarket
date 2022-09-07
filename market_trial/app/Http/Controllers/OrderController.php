@@ -92,15 +92,15 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         //
-        $id = Auth::id() ;
+//        $id = Auth::id() ;
 //        dd(Order::all());
 //        dd(Order::find($id));
         return view('/market/order/show', [
             'menus' => ServiceType::all() ,
-            'orders' => Order::all() ,
-            'services' => Service::all(),
-            'serviceorder' => ServiceOrder::find($id) ,
-            'userorder' => UserOrder::all() ,
+//            'orders' => Order::all() ,
+//            'services' => Service::all(),
+//            'serviceorder' => ServiceOrder::find($id) ,
+//            'userorder' => UserOrder::all() ,
 
         ]);
 //        return "HOLLA!!";
@@ -114,18 +114,9 @@ class OrderController extends Controller
      */
     public function edit(ServiceType $order)
     {
-        //
-        //
-//        return view('/market/order_request');
 
-        $id = Auth::id() ;
-//        dd(Order::all());
-//        dd(Order::find($id));
         return view('/market/order/edit', [
             'orders' => ServiceType::all() ,
-            'services' => Service::all(),
-            'serviceorder' => ServiceOrder::find($id) ,
-            'userorder' => UserOrder::all() ,
 
         ]);
 //        return "HOLLA!!";

@@ -1,135 +1,103 @@
 @extends('layouts.navigation')
 @section('nav')
 
-
-
     <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html   >
 <head>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    {{--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>manage order </title>
-
 </head>
-<body>
+<body  >
+<div dir="rtl" class="container bootstrap snippets bootdey">
+    <h1 class="text-info"> خدمه جديده</h1>
+    <hr>
+    <div class="row">
+        <!-- edit form column -->
+        {{--    //Form errors message--}}
+        <dev class="error">
+            @if ($errors->any())
+                <div class="col-md-9 personal-info">
+                    <div class="alert alert-info alert-dismissable">
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <a class="panel-close close" data-dismiss="alert">×</a>
+                                    <i class="fa fa-coffee">{{ $error }}</i>
+                                    This is an
+                                    <strong>.alert</strong>.
+                                </ul>
+                                @endforeach
+                            </div>
+                    </div>
+                    @endif
+                    <form class="yourform" action="{{route('service.store')}}" method="post" autocomplete="off">
+                        @csrf
+                        <div class="form-group">
+                            <div class="col-lg-8">
+                                <!-- retrive the old value from the model table  -->
 
-<div class="container mt-5" lang="ar" dir="rtl">
-    <div class="d-flex justify-content-center row">
-        <div class="col-md-10">
-            <div class="rounded">
-                <div class="table-responsive table-borderless">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            {{--                            <th class="text-center">--}}
-                            {{--                                <div class="toggle-btn">--}}
-                            {{--                                    <div class="inner-circle"></div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </th>--}}
-                            <th>   #</th>
-                            <th>اسم الخدمه  </th>
-                            <th>اسم المستخدم</th>
-                            <th>حاله الطلب</th>
-                            <th>السعر</th>
-                            <th>الكميه المطلوبه</th>
-                            <th>تاريخ عمل الطلب</th>
-                            <th>تغيير حاله الطلب </th>
-                            <th>حذف الطلب </th>
+                                <label class="col-lg-3 control-label">  اﻻسم:</label>
+                                <div class="col-lg-8">
 
-                        </tr>
-                        </thead>
-                        <tbody class="table-body">
-                        {{--                        @dd($userorder)--}}
-                        @forelse($orders as $order)
+                                    <input class="form-control" type="text" placeholder="" name="name" value="" required >
+                                    <br>
+                                  <label class="col-lg-3 control-label"> السعر : </label>
+                                </div>
+                                <div class="col-lg-8">
 
-                            <tr scope="row" class="cell-1">
-                                <td>{{$order->id}}  </td>
-                                <td>{{$order->name}}  </td>
+                                    <input class="form-control" type="text" placeholder="" name="price" value="" required >
+                                    <br>
+                                    <label class="col-lg-3 control-label"> الحد اﻻدني : </label>
+                                </div>
+                                <div class="col-lg-8">
 
+                                    <input class="form-control" type="text" placeholder="" name="mini" value="" required >
+                                    <br>
+                                    <label class="col-lg-3 control-label"> الحد اﻻقصي : </label>
+                                </div>
+                                    <div class="col-lg-8">
 
-                                {{--Calling the relationship tables, Note :the null value returns error! --}}
-                                {{--        call the model ---> then the function in this model in which the relationship implemented ----> then its attrbutes (all in the model requsted)   --}}
-                                {{--                           <td>{{$order->userorder->user}}</td>--}}
-                                <td>EDR!!!</td>
-                                <td>{{$order->status}}</td>
+                                    <input class="form-control" type="text" placeholder="" name="max" value="" required >
+                                    <br>
+                                    <label class="col-lg-3 control-label"> متوسط الوقت : </label>
+                                    </div>
+                                        <div class="col-lg-8">
+                                    <input class="form-control" type="text" placeholder="" name="timeaverage" value="" required >
+                                    <br>
+                                    <label class="col-lg-3 control-label"> تفاصيل الخدمه: </label>
+                                        </div>
+                                            <div class="col-lg-8">
 
-
-
-                                <td>${{$order->price}} </td>
-
-                                <td>{{$order->quantity}}
-                                <td>{{$order->created_at}}
-                                </td>
-                                {{--                            <td>--}}
-                                {{--                                <form action="/order/update/{{$order->id}}" method="post"--}}
-                                {{--                                class="form-hidden"><!-- SEND APPROVED status to the table-->--}}
-                                {{--                                <button class="btn btn-info delete-author">قبول الطلب</button>--}}
-                                {{--                                @csrf--}}
-                                {{--                                </form>                            </td>--}}
-
-
-                                <td >
-                                    {{--                                <input class="form-control" type="text" placeholder="Admin Name" name="name" value="">--}}
-                                    <form action="admin/order/update/{{$order->id}}" method="post"
-                                          class="form-hidden"><!-- SEND DELETED status to the table-->
-                                        <select name="choice" >
-                                            <option value="" selected >  {{$order->status}}   </option>
-                                            <option name="ordarwait"> قيد الانتظار   </option>
-                                            <option name="ordarwait2" > جارى التنفيذ   </option>
-                                            <option name="ordarwait3"> مكتمل   </option>
-                                            <option name="ordarwait3"> مكتمل جزئيا   </option>
-                                            <option name="ordarwait">ملغي   </option>
-                                        </select>
-                                        @csrf
-                                    </form>
-                                    <form action="/order/update/{{$order->id}}" method="post"
-                                          class="form-hidden"><!-- SEND DELETED status to the table-->
-
-                                        <button class="btn btn-warning delete-author">تحديث حالة الطلب</button>
-                                        @csrf
-                                    </form>
-
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger delete-author">حذف الطلب</button>
-
-                                </td>
-                                {{--                            <td><i class="fa fa-ellipsis-h text-black-50"></i>--}}
-                                {{--                                <button type="button" onclick={ handleToggle= } class="btn btn-success">  </button> </td>--}}
-                            </tr>
-                        @empty
-                        @endforelse
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-</html>
+                                    <input class="form-control" type="text" placeholder="" name="details" value="" required >
+                                    <br>
+                                <label class="col-lg-3 control-label"> تحديد نوع الخدمه: </label>
+                                         </div>
+                                <div class="col-lg-8">
+                                    <select>
+                                        <option value="0"  selected  align="right" dir="rtl" >  💰اختر نوع الخدمه</option>
+                                    @foreach($orders as $order)
+                                        <option value="{!! $order->id !!}">  💰{!! $order->name !!}</option>
+                                    @endforeach
+                                    </select>
+                                     <br>
+                                     <br>
+                                     <br>
+                                </div>
+                                     <input type="submit" class="btn btn-info" required value="اضافه خدمه للقائمه" >
+                                    @csrf
+                                </div>
+                            </div>
 
 
+                    </form>
 
-
-
-
-
-
-
-
-
+                </div> </dev> </div> </div> </body> </html>  </div> </dev>
 
 
 @endsection

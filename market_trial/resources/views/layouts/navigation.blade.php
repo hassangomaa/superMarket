@@ -8,7 +8,6 @@
                 <li class="nav-item"> <a class="nav-link active" aria-current="page" href="{{route('order.edit')}}">ordermanage</a> </li>
                 <li class="nav-item"> <a class="nav-link active" aria-current="page" href="{{route('services')}}">servicelist:</a> </li>
                 <li class="nav-item"> <a class="nav-link active" aria-current="page" href="{{route('service')}}">servicenew</a> </li>
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="{{route('service.edit')}}">add service</a> </li>
 
                 </li>
             </ul>

@@ -35,13 +35,13 @@ Route::group( [
     Route::get('/service', [\App\Http\Controllers\ServiceController::class,'index' ])->name('services');
     Route::get('/service/show', [\App\Http\Controllers\ServiceController::class,'show' ])->name('services.show');
     Route::get('/service/create', [\App\Http\Controllers\ServiceController::class, 'create'])->name('service');
-    Route::get('/service/edit', [\App\Http\Controllers\ServiceController::class, 'edit'])->name('service.edit');
+    Route::get('/service/edit/{id}', [\App\Http\Controllers\ServiceController::class, 'edit'])->name('service.edit');
     Route::post('/service/update/{id}', [\App\Http\Controllers\ServiceController::class, 'update'])->name('service.update');
     Route::post('/service/destroy/{id}', [\App\Http\Controllers\ServiceController::class, 'destroy'])->name('service.destroy');
     Route::post('/service/create', [\App\Http\Controllers\ServiceController::class, 'store'])->name('service.store');
     Route::get('/user/order', [\App\Http\Controllers\UserOrderController::class,'index' ])->name('order.logs');
     Route::get('user/order/create', [\App\Http\Controllers\UserOrderController::class, 'create'])->name('order.request');
-    Route::post('user/order/store', [\App\Http\Controllers\UserOrderController::class, 'store'])->name('service.store');
+    Route::post('user/order/store', [\App\Http\Controllers\UserOrderController::class, 'store'])->name('user.service.store');
 
 });
 

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Service;
+use App\Models\ServiceOrder;
 use App\Models\ServiceType;
+use App\Models\UserOrder;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -16,13 +18,15 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
-        return view("market/service/index",
-        [
-            'orders' => Order::all(),
-            'services' => Service::all(),
-        ]
-        );
+        return view('market.service.index',[
+            'menus' => Service::all() ,
+           'orders' => Order::all() ,
+//            'services' => Service::all(),
+//            'serviceorder' => ServiceOrder::find($id) ,
+//            'userorder' => UserOrder::all() ,
+        ]);
+
+
     }
 
     /**
@@ -32,13 +36,15 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
-        return view("market/service/create",
-            [
-                'orders' => Order::all(),
-                'services' => Service::all(),
-            ]
-        );
+        return view('market.service.create',[
+            'menus' => Service::all() ,
+           'orders' => Order::all() ,
+//            'services' => Service::all(),
+//            'serviceorder' => ServiceOrder::find($id) ,
+//            'userorder' => UserOrder::all() ,
+        ]);
+
+
     }
 
     /**
@@ -49,20 +55,26 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        @dd($request);
 
-        //
 //        dd($request );
-//
+
 //        $data=$request->all();
-//        $order = Order::create($data);
+//        $order = Service::create($data);
 //        $order->save();
-//        Order::create($data->validate([
-//            'link'=> 'required',
-//            'quantity' => 'required'
-//        ]));
-//        return view("market/service/index");
+//        dd($request);
+        Service::create($request->validate([
+            'name'=> 'required',
+            'price'=> 'required',
+            'mini'=> 'required',
+            'max'=> 'required',
+            'timeaverage' => 'required',
+            'details' => 'required',
+        ]));
+//        return view("market/service/show");
+        return redirect('/admin/service/show');
+
     }
+
 
     /**
      * Display the specified resource.
@@ -73,11 +85,11 @@ class ServiceController extends Controller
     public function show(Service $service)
     {
         //
-        return view("market/service/show",[
-            'menus'=> Service::all() ,
-            'orders'=>Order::all(),
-            ]
-        );
+        return view('market.service.show',[
+            'menus' => Service::all() ,
+            'orders' => Order::all() ,
+         ]);
+
 
 
     }
@@ -88,16 +100,13 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit(Service $id)
     {
-        //
-        return view("market/service/edit",
-            [
-                'orders' => Order::all(),
-                'services' => Service::all(),
-            ]
-        );
-
+        return view('/market/service/edit', [
+            'orders' => $id ,
+            'menus' => Service::all() ,
+            'orders1' => Order::all() ,
+        ]);
     }
 
     /**
@@ -107,11 +116,16 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
-        //
-        return view("market/service/index");
-
+        $type=Service::find($id);
+        $type->name =$request->name;
+        $type->price =$request->price;
+        $type->max =$request->mini;
+        $type->timeaverage =$request->timeaverage;
+        $type->details =$request->details;
+        $type->save();
+        return redirect('/admin/service/show');
     }
 
     /**
@@ -120,11 +134,12 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
         //
-        Service::where('id', $service)->delete();
-        return view("market/service/index");
+//        dd($service);
+        Service::where('id', $id)->delete();
+        return redirect('/admin/service/show');
 
     }
 }

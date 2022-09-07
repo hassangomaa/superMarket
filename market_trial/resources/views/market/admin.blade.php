@@ -67,6 +67,11 @@
 
                         </td>
 
+                        <td >
+                                <button class="btn btn-warning "> <a href="{{route('service')}}"> اضافه جديد</a>  </button>
+
+                        </td>
+
                     </tr>
                 </tbody>
             </table>

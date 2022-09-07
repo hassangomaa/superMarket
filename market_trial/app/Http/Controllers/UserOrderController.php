@@ -47,13 +47,13 @@ class UserOrderController extends Controller
     {
 //        print_r($request);
 //        dd($request->get('name'));
-        $data=$request->all();
-        Order::create($data->validate([
-            'link'=> 'required',
+//        $data=$request->all();
+        Order::create($request->validate([
+            'link.required' => 'المحتوي مطلوب ادخاله اوﻻ!!',
             'quantity' => 'required'
         ]));
-        $order = Order::create($data);
-        $order->save();
+//        $order = Order::create($data);
+//        $order->save();
         return view("market/service/index");
     }
 

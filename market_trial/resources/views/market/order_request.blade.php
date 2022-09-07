@@ -46,7 +46,7 @@
                                  <label for="orderform-category" class="control-label">القائمة</label>
 {{--                                 <input class="form-control" type="text" placeholder="0" name="name" value="0" required >--}}
                                  <select class="form-control" id="orderform-category" name="orderid">
-{{--                                    <option value="0"  selected  align="right" dir="rtl" >  💰اختر نوع الخدمه</option>--}}
+                                    <option value="0"  selected  align="right" dir="rtl" >  💰اختر نوع الخدمه</option>
                                     @foreach($orders as $order)
                                     <option value="{!! $order->id !!}">  💰{!! $order->name !!}</option>
                                     @endforeach

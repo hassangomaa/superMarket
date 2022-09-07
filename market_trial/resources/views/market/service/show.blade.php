@@ -53,9 +53,8 @@
                                 </td>
 
                                 <td >
-                                    @foreach($orders as $order)
-                                    @endforeach
-                                    <form action="/order/update/{{$order->id}}" method="post"
+
+                                    <form action="{{route('service.edit',$menu)}}" method="get"
                                           class="form-hidden"><!-- SEND DELETED status to the table-->
 
                                         <button class="btn btn-primary ">تحديث  </button>
@@ -64,7 +63,7 @@
 
                                 </td>
                                 <td class="delete">
-                                    <form action="{{route('order.destroy',$order->id)}}" method="post"
+                                    <form action="{{route('service.destroy',$menu->id)}}" method="post"
                                           class="form-hidden"><!-- SEND DELETED status to the table-->
 
                                         <button class="btn btn-danger delete-author">حذف  </button>

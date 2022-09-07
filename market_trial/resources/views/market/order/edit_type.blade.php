@@ -38,6 +38,8 @@
                     @endif
 
 {{--                    @dd( $orders)--}}
+{{--                    @dd( $orders)--}}
+
                     <form class="yourform" action="{{route('order.update',$orders->id)}}" method="post" autocomplete="off">
                         @csrf
                         <div class="form-group">
