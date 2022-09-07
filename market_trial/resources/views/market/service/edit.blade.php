@@ -1,40 +1,18 @@
 
-{{--@extends('layouts.navigation')--}}
+@extends('layouts.navigation')
+@section('nav')
 
     <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    @extends('layouts.navigation')
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="admin/order/">orderlist:</a> </li>
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="admin/order/create">ordernew</a> </li>
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="admin/order/edit">ordermanage</a> </li>
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="admin/service/">servicelist:</a> </li>
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="admin/service/create">servicenew</a> </li>
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="admin/service/edit">servicemanage</a> </li>
-
-                </li>
-            </ul>
-            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="user/order/">LOGS</a> </li>
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="user/order/create">request</a> </li>
-            </ul>
-
-        </div>
-        </div>
-    </nav>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {{--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body dir="rtl" >
 <div class="container bootstrap snippets bootdey">
@@ -126,3 +104,4 @@
     }
 </style>
 
+@endsection

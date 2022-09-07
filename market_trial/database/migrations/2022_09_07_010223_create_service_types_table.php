@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menu_orders', function (Blueprint $table) {
+        Schema::create('service_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-//            $table->string('details');
-//            $table->integer('price')->unsigned();//number
-//            $table->integer('quantity')->unsigned();//number
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menu_orders');
+        Schema::dropIfExists('service_types');
     }
 };

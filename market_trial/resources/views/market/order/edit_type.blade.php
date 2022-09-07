@@ -36,7 +36,9 @@
                             </div>
                     </div>
                     @endif
-                     <form class="yourform" action="{{route('order.store')}}" method="post" autocomplete="off">
+
+{{--                    @dd( $orders)--}}
+                    <form class="yourform" action="{{route('order.update',$orders->id)}}" method="post" autocomplete="off">
                         @csrf
                         <div class="form-group">
                             <div class="col-lg-8">
@@ -44,14 +46,14 @@
 
                                 <label class="col-lg-3 control-label"> اﻻسم:</label>
                                 <div class="col-lg-8">
-                                    <input class="form-control" type="text" placeholder="" name="name" value="🐼 لينكد ان - امريكا" required >
-                                        <br>
-                                     </h4>
-                                    <input type="submit" class="btn btn-info" required value="اضافه قسم للقائمه" >
-
+                                    <input class="form-control" type="text" placeholder="" name="name" value="{{$orders->name}}" required >
+                                    <br>
+                                    </h4>
+                                    <input type="submit" class="btn btn-danger" required value="تحديث قسم للقائمه" >
                                     @csrf
                                 </div>
                             </div>
+                        </div>
                     </form>
 
                 </div> </dev> </div> </div> </body> </html>  </div> </dev>

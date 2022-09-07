@@ -1,5 +1,8 @@
 @extends('layouts.navigation')
 @section('nav')
+
+
+
     <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -34,7 +37,8 @@
                             {{--                                    <div class="inner-circle"></div>--}}
                             {{--                                </div>--}}
                             {{--                            </th>--}}
-                            <th>اسم الخدمه #</th>
+                            <th>   #</th>
+                            <th>اسم الخدمه  </th>
                             <th>اسم المستخدم</th>
                             <th>حاله الطلب</th>
                             <th>السعر</th>
@@ -48,13 +52,22 @@
                         <tbody class="table-body">
                         {{--                        @dd($userorder)--}}
                         @forelse($orders as $order)
+
                             <tr scope="row" class="cell-1">
-                                <td>{{$order->name}}</td>
+                                <td>{{$order->id}}  </td>
+                                <td>{{$order->name}}  </td>
+
+
                                 {{--Calling the relationship tables, Note :the null value returns error! --}}
                                 {{--        call the model ---> then the function in this model in which the relationship implemented ----> then its attrbutes (all in the model requsted)   --}}
                                 {{--                           <td>{{$order->userorder->user}}</td>--}}
-                                <td>{{$order->name}}</td>
+                                <td>EDR!!!</td>
+                                <td>{{$order->status}}</td>
+
+
+
                                 <td>${{$order->price}} </td>
+
                                 <td>{{$order->quantity}}
                                 <td>{{$order->created_at}}
                                 </td>
@@ -67,19 +80,19 @@
 
 
                                 <td >
-                                    <input class="form-control" type="text" placeholder="Admin Name" name="name" value="">
-                                    <select name="choice"  size="0" >
-
-                                        الجميع
-                                        قيد الانتظار	جارى التنفيذ	مكتمل	مكتمل جزئيا	قيد التجهيز	ملغي
-
-                                        <option>0 {{$order->status}}   </option>
-                                        <option name="ordarwait"> قيد الانتظار  1 </option>
-                                        <option name="ordarwait2" > جارى التنفيذ 2</option>
-                                        <option>name="ordarwait3" مكتمل 3 </option>
-                                        <option name="ordarwait3"> مكتمل جزئيا 4 </option>
-                                        <option name="ordarwait">ملغي 5 </option>
-                                    </select>
+                                    {{--                                <input class="form-control" type="text" placeholder="Admin Name" name="name" value="">--}}
+                                    <form action="admin/order/update/{{$order->id}}" method="post"
+                                          class="form-hidden"><!-- SEND DELETED status to the table-->
+                                        <select name="choice" >
+                                            <option value="" selected >  {{$order->status}}   </option>
+                                            <option name="ordarwait"> قيد الانتظار   </option>
+                                            <option name="ordarwait2" > جارى التنفيذ   </option>
+                                            <option name="ordarwait3"> مكتمل   </option>
+                                            <option name="ordarwait3"> مكتمل جزئيا   </option>
+                                            <option name="ordarwait">ملغي   </option>
+                                        </select>
+                                        @csrf
+                                    </form>
                                     <form action="/order/update/{{$order->id}}" method="post"
                                           class="form-hidden"><!-- SEND DELETED status to the table-->
 
@@ -88,13 +101,15 @@
                                     </form>
 
                                 </td>
-                                <td class="delete">
+
+                                <td>
                                     <form action="/order/destroy/{{$order->id}}" method="post"
                                           class="form-hidden"><!-- SEND DELETED status to the table-->
 
-                                        <button class="btn btn-danger delete-author">حذف الطلب</button>
+                                        <input type="submit" class="btn-danger" value="حذف">
                                         @csrf
                                     </form>
+
 
                                 </td>
                                 {{--                            <td><i class="fa fa-ellipsis-h text-black-50"></i>--}}
@@ -114,84 +129,14 @@
 
 
 
-{{--<style>--}}
 
 
-{{--    @import url('https://fonts.googleapis.com/css?family=Assistant');--}}
-{{--    body {--}}
-{{--        background: #eee;--}}
-{{--        font-family: Assistant, sans-serif;--}}
-{{--    }--}}
-
-{{--    .cell-1 {--}}
-{{--        border-collapse: separate;--}}
-{{--        border-spacing: 0 4em;--}}
-{{--        background: #fff;--}}
-{{--        border-bottom: 5px solid transparent;--}}
-{{--        /*background-color: gold;*/--}}
-{{--        background-clip: padding-box;--}}
-{{--    }--}}
-
-{{--    thead {--}}
-{{--        background: #dddcdc;--}}
-{{--    }--}}
-
-{{--    .toggle-btn {--}}
-{{--        width: 40px;--}}
-{{--        height: 21px;--}}
-{{--        background: grey;--}}
-{{--        border-radius: 50px;--}}
-{{--        padding: 3px;--}}
-{{--        cursor: pointer;--}}
-{{--        -webkit-transition: all 0.3s 0.1s ease-in-out;--}}
-{{--        -moz-transition: all 0.3s 0.1s ease-in-out;--}}
-{{--        -o-transition: all 0.3s 0.1s ease-in-out;--}}
-{{--        transition: all 0.3s 0.1s ease-in-out;--}}
-{{--    }--}}
-
-{{--    .toggle-btn > .inner-circle {--}}
-{{--        width: 15px;--}}
-{{--        height: 15px;--}}
-{{--        background: #fff;--}}
-{{--        border-radius: 50%;--}}
-{{--        -webkit-transition: all 0.3s 0.1s ease-in-out;--}}
-{{--        -moz-transition: all 0.3s 0.1s ease-in-out;--}}
-{{--        -o-transition: all 0.3s 0.1s ease-in-out;--}}
-{{--        transition: all 0.3s 0.1s ease-in-out;--}}
-{{--    }--}}
-
-{{--    .toggle-btn.active {--}}
-{{--        background: blue !important;--}}
-{{--    }--}}
-
-{{--    .toggle-btn.active > .inner-circle {--}}
-{{--        margin-left: 19px;--}}
-{{--    }--}}
 
 
-{{--</style>--}}
 
 
-{{--<script>--}}
 
-{{--    $(document).ready(function(){--}}
 
-{{--        $('.toggle-btn').click(function() {--}}
-{{--            $(this).toggleClass('active').siblings().removeClass('active');--}}
-{{--        });--}}
-{{--        handleToggle = () => {--}}
-{{--            {{$orders->status='confirmed'--}}
-{{--            }}--}}
-{{--        }--}}
-{{--    }--}}
-
-{{--    );--}}
-{{--</script>--}}
 
 
 @endsection
-
-
-
-
-

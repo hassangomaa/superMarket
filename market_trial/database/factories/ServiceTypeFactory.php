@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MenuOrder>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ServiceType>
  */
-class MenuOrderFactory extends Factory
+class ServiceTypeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class MenuOrderFactory extends Factory
     {
         return [
             //
-           'name' => "🌐 زيارات مواقع الويب من كندا< ",
+            'name' =>  "🌐 زيارات مواقع الويب من المملكة المتحدة",
 
         ];
     }

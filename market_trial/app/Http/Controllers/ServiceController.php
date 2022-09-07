@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Service;
+use App\Models\ServiceType;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -32,7 +33,12 @@ class ServiceController extends Controller
     public function create()
     {
         //
-        return view("market/service/create");
+        return view("market/service/create",
+            [
+                'orders' => Order::all(),
+                'services' => Service::all(),
+            ]
+        );
     }
 
     /**
@@ -43,6 +49,8 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        @dd($request);
+
         //
 //        dd($request );
 //
@@ -65,7 +73,12 @@ class ServiceController extends Controller
     public function show(Service $service)
     {
         //
-        return view("market/service/edit");
+        return view("market/service/show",[
+            'menus'=> Service::all() ,
+            'orders'=>Order::all(),
+            ]
+        );
+
 
     }
 
@@ -110,6 +123,7 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         //
+        Service::where('id', $service)->delete();
         return view("market/service/index");
 
     }

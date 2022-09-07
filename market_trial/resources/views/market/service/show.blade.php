@@ -14,7 +14,7 @@
 </head>
 <body>
 <tr>
-    <h1> مرحبا لوحه تحكم الاقسام </h1>
+    <h1> مرحبا لوحه تحكم الخدمات </h1>
 
 </tr>
 <div class="container mt-5" lang="ar" dir="rtl">
@@ -25,17 +25,16 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            {{--                            <th class="text-center">--}}
-                            {{--                                <div class="toggle-btn">--}}
-                            {{--                                    <div class="inner-circle"></div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </th>--}}
-                            <th> #الرقم التعريفي للقسم</th>
-                            <th>اسم القسم  </th>
-                            <th>تاريخ العمل  </th>
-                            <th> اداره القسم  </th>
-                            <th> اداره القسم  </th>
-
+                            <th>#</th>
+                            <th>اسم للخدمه </th>
+                            <th>سعر للخدمه </th>
+                            <th>الحد اﻻدني للخدمه </th>
+                            <th>الحد اﻻقصي للخدمه </th>
+                            <th>متوسط الوقت للخدمه </th>
+                            <th>تفاصيل للخدمه </th>
+                            <th>تاريخ للخدمه  </th>
+                            <th> اداره للخدمه  </th>
+                            <th> اداره للخدمه  </th>
                         </tr>
                         </thead>
                         <tbody class="table-body">
@@ -43,22 +42,35 @@
                         @forelse($menus as $menu)
                             <tr scope="row" class="cell-1">
                                 <td>{{$menu->id}}</td>
+
                                 <td>{{$menu->name}}</td>
+                                <td>{{$menu->price}}</td>
+                                <td>{{$menu->mini}}</td>
+                                <td>{{$menu->max}}</td>
+                                <td>{{$menu->timeaverage}}</td>
+                                <td>{{$menu->details}}</td>
                                 <td>{{$menu->created_at}}
                                 </td>
+
                                 <td >
-                                    <form action="{{route('order.type', $menu )}}" method="get"
-                                        class="form-hidden"><!-- SEND DELETED status to the table-->
-                                        <button class="btn btn-warning ">تحديث  </button>
+                                    @foreach($orders as $order)
+                                    @endforeach
+                                    <form action="/order/update/{{$order->id}}" method="post"
+                                          class="form-hidden"><!-- SEND DELETED status to the table-->
+
+                                        <button class="btn btn-primary ">تحديث  </button>
                                         @csrf
                                     </form>
+
                                 </td>
                                 <td class="delete">
-                                    <form action="{{route('order.destroy',$menu->id)}}" method="post"
+                                    <form action="{{route('order.destroy',$order->id)}}" method="post"
                                           class="form-hidden"><!-- SEND DELETED status to the table-->
+
                                         <button class="btn btn-danger delete-author">حذف  </button>
                                         @csrf
                                     </form>
+
                                 </td>
                             </tr>
                         @empty

@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\OrderAdmin;
 use App\Models\Service;
 use App\Models\ServiceOrder;
+use App\Models\ServiceType;
 use App\Models\UserOrder;
 use Illuminate\Database\Seeder;
 
@@ -24,7 +25,8 @@ class DatabaseSeeder extends Seeder
             Service::factory(10)->create();
             ServiceOrder::factory(10)->create();
             UserOrder::factory(10)->create();
-            OrderAdmin::factory(10)->create();
+//            OrderAdmin::factory(10)->create();
+            ServiceType::factory(10)->create();
 
 
 

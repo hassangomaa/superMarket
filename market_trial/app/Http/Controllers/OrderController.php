@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\OrderAdmin;
 use App\Models\Service;
 use App\Models\ServiceOrder;
+use App\Models\ServiceType;
 use App\Models\UserOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,9 +71,16 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
-        @dd($request);
-        Order::create($request->all());
-        return view('/market/order/index');
+//        @dd($request);
+//        $data = $request->all();
+//        $order= ServiceType::create($data);
+        ServiceType::create($request->validate([
+                'name'=> 'required',
+            ]));
+//        $order->save();
+
+
+        return redirect('/admin');
     }
 
     /**
@@ -88,11 +96,11 @@ class OrderController extends Controller
 //        dd(Order::all());
 //        dd(Order::find($id));
         return view('/market/order/show', [
-            'menus' => OrderAdmin::all() ,
-//            'orders' => Order::all() ,
-//            'services' => Service::all(),
-//            'serviceorder' => ServiceOrder::find($id) ,
-//            'userorder' => UserOrder::all() ,
+            'menus' => ServiceType::all() ,
+            'orders' => Order::all() ,
+            'services' => Service::all(),
+            'serviceorder' => ServiceOrder::find($id) ,
+            'userorder' => UserOrder::all() ,
 
         ]);
 //        return "HOLLA!!";
@@ -104,7 +112,7 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(ServiceType $order)
     {
         //
         //
@@ -114,11 +122,20 @@ class OrderController extends Controller
 //        dd(Order::all());
 //        dd(Order::find($id));
         return view('/market/order/edit', [
-            'orders' => Order::all() ,
+            'orders' => ServiceType::all() ,
             'services' => Service::all(),
             'serviceorder' => ServiceOrder::find($id) ,
             'userorder' => UserOrder::all() ,
 
+        ]);
+//        return "HOLLA!!";
+
+    }
+public function type(ServiceType $id)
+    {
+
+        return view('/market/order/edit_type', [
+            'orders' => $id ,
         ]);
 //        return "HOLLA!!";
 
@@ -134,12 +151,15 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         //
-        dd(@$request);
-        $order = Order::find($id);
-        $order->status = "مكتمل جزئيا ";
-//        $order->status = $request->choice ;
-        $order->save();
-        return view('/market/order/index');
+//        dd(@$request);
+//        $order = Order::find($id);
+//        $order->status = "مكتمل جزئيا ";
+////        $order->status = $request->choice ;
+//        $order->save();
+        $type=ServiceType::find($id);
+        $type->name =$request->name;
+        $type->save();
+        return redirect('/admin/order/show');
     }
 
     /**
@@ -151,13 +171,14 @@ class OrderController extends Controller
     public function destroy( $id)
     {
         //
-        $order = Order::find($id);
-        $order->status = "ملغي ";
-        $order->save();
-        return view('/market/order/index');
+//        dd($id);
+//        $order = Order::find($id);
+//        $order->status = "ملغي ";
+//        $order->save();
 
-//        Order::where('id', $id)->delete();
-//        return redirect('market.orderlogs');
+
+        ServiceType::where('id', $id)->delete();
+        return redirect('admin/order/show');
 
     }
 }
