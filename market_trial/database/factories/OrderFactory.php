@@ -19,12 +19,13 @@ class OrderFactory extends Factory
         return [
             'name' => "⭐ تفعيل يوتيوب ",
 //            'details' => "♔ البدأ : 1 ~ 120 ساعة" ,
-            'status' => "قيد الانتظار",
+//            'status' => "قيد الانتظار",
             'link' => fake()->address(),
             'price' => fake()->randomDigitNotZero(),
             'quantity' => fake()->randomDigitNotZero(),
-            'orderid' => fake()->randomDigitNotZero(),
-            'userid' => fake()->randomDigitNotZero(),
+//            'orderid' => fake()->randomDigitNotZero(),
+            'user_id' => fake()->randomDigitNotZero(),
+            'status_id' => fake()->randomDigitNotZero(),
 
             //
         ];

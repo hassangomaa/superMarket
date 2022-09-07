@@ -16,8 +16,8 @@ class Order extends Model
     protected $fillable =[
        //'id',
         'name',
-        'userid',
-        'status',
+        'user_id',
+        'status_id',
         'link',
         'price',
         'quantity'
@@ -28,11 +28,15 @@ class Order extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function userorder(): BelongsTo
+    public function statusorder()
     {
-        return $this->hasMany(UserOrder::class);//change to belongs to
+        return $this->belongsTo(StatusOrder::class);
     }
+
+//    public function userorder(): BelongsTo
+//    {
+//        return $this->hasMany(UserOrder::class);//change to belongsto
+//    }
 
 
     public function serviceorder(): BelongsTo

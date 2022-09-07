@@ -8,7 +8,9 @@ use App\Models\OrderAdmin;
 use App\Models\Service;
 use App\Models\ServiceOrder;
 use App\Models\ServiceType;
+use App\Models\StatusOrder;
 use App\Models\UserOrder;
+use Database\Factories\StatusOrderFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -27,7 +29,9 @@ class DatabaseSeeder extends Seeder
             UserOrder::factory(10)->create();
 //            OrderAdmin::factory(10)->create();
             ServiceType::factory(10)->create();
+           // StatusOrder::factory(10)->create();
 
+        $this->call(\Database\Seeders\StatusOrder::class);
 
 
         // \App\Models\User::factory()->create([

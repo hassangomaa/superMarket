@@ -33,15 +33,15 @@
                         <div class="table-responsive table-borderless">
                             <table class="table">
                                 <thead>
-                            <tr>
+                            <tr >
                                  <ul class="nav nav-pills  rtl-nav ">
-                                 <td>   <li class="active"><a href="/orders"><i class="fas fa-list-ul"></i> الجميع</a></li></td>
-                                 <td> <a href=""><i class=""></i> قيد الانتظار</a> </td>
-                                 <td><a href=""><i class=""></i> جارى التنفيذ</a> </td>
-                                    <td><a href=""><i class=""></i> مكتمل</a></td>
-                                    <td><a href=""><i class=""></i> مكتمل جزئيا</a></td>
-                                    <td><a href=""><i class=""></i> قيد التجهيز</a></td>
-                                    <td><a href=""><i class=""></i> ملغي</a></td>
+                                 <td class="btn btn-outline-dark">   <li class="active"><a href="#"><i class="fas fa-list-ul"></i> الجميع</a></li></td>
+                                 <td class="btn btn-outline-dark" > <a href="#"><i class=""></i> قيد الانتظار</a> </td>
+                                 <td class="btn btn-outline-dark" ><a href="#"><i class=""></i> جارى التنفيذ</a> </td>
+                                    <td class="btn btn-outline-dark"><a href="#"><i class=""></i> مكتمل</a></td>
+                                    <td class="btn btn-outline-dark" ><a href="#"><i class=""></i> مكتمل جزئيا</a></td>
+                                    <td class="btn btn-outline-dark"><a href="#"><i class=""></i> قيد التجهيز</a></td>
+                                    <td class="btn btn-outline-dark"><a href="#"><i class=""></i> ملغي</a></td>
                                 </ul>
                             </tr>
                                 </thead>
@@ -52,8 +52,8 @@
                             <div class="table-responsive">
                                 <table class="table  rtl-table ">
                                     <thead>
-                                    <tr>
-                                        <th>رقم الطلب</th>
+                                    <tr >
+                                        <th >رقم الطلب</th>
                                         <th>تاريخ</th>
                                         <th >الرابط</th>
                                         <th>السعر</th>

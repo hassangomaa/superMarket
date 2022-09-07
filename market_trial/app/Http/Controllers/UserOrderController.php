@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Service;
+use App\Models\StatusOrder;
 use App\Models\UserOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserOrderController extends Controller
 {
@@ -16,11 +18,13 @@ class UserOrderController extends Controller
      */
     public function index()
     {
-        //
-        return view('/market/orderlogs', [
+        return view('/market/order/index', [
             'orders' => Order::all() ,
             'services' => Service::all(),
+            'Status' => StatusOrder::all(),
+
         ]);
+
     }
 
     /**
@@ -35,7 +39,8 @@ class UserOrderController extends Controller
         return view('/market/order_request', [
             'orders' => Order::all() ,
             'services' => Service::all(),
-        ]);}
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -45,16 +50,43 @@ class UserOrderController extends Controller
      */
     public function store(Request $request)
     {
+        //        create user requset
+
 //        print_r($request);
-//        dd($request->get('name'));
+//        dd($request);
 //        $data=$request->all();
-        Order::create($request->validate([
-            'link.required' => 'المحتوي مطلوب ادخاله اوﻻ!!',
-            'quantity' => 'required'
-        ]));
+//
+////        dd();
+////        {{Auth::user()->id}}
+////            dd($data);
 //        $order = Order::create($data);
 //        $order->save();
-        return view("market/service/index");
+//        Order::create($request->validate([
+//            'name' => 'required',
+//            'user_id' => Auth::user()->id,
+////            'status' => 'required',
+//            'link' => 'required',
+//            'price' => 'required',
+////            'quantity' => 'required',
+//        ]));
+
+//        dd($request->toArray());
+        Order::create($request->toArray() );
+//        [
+
+//            'user_id' => Auth::user()->id,
+//            'status' => 'required',
+//            'link' => 'required',
+//            'price' => 'required',
+//            'quantity' => 'required',
+//        ]);
+
+
+
+
+
+
+        return redirect('admin/user/order/create');
     }
 
     /**
@@ -97,8 +129,15 @@ class UserOrderController extends Controller
      * @param  \App\Models\UserOrder  $userOrder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserOrder $userOrder)
+    public function destroy($id)
     {
         //
+//        dd($id);
+        Order::where('id', $id)->delete();
+       return redirect('admin/order/requset');
+//        return view('/market/order/index', [
+//            'orders' => Order::all() ,
+//            'services' => Service::all(),
+//        ]);
     }
 }

@@ -18,8 +18,8 @@ class UserOrderFactory extends Factory
     {
         return [
             //
-            'userid' => fake()->randomDigitNotZero() ,
-            'orderid' => fake()->randomDigitNotZero() ,
+            'user_id' => fake()->randomDigitNotZero() ,
+            'order_id' => fake()->randomDigitNotZero() ,
 
         ];
     }

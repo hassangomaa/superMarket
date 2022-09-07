@@ -56,7 +56,7 @@ class OrderController extends Controller
     public function create()
     {
         return view('/market/order/create', [
-            'orders' => Order::all() ,
+            'orders' => ServiceType::all() ,
             'services' => Service::all(),
         ]);
 
@@ -70,8 +70,8 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
-//        @dd($request);
+        //create user requset
+        @dd($request);
 //        $data = $request->all();
 //        $order= ServiceType::create($data);
         ServiceType::create($request->validate([
@@ -97,8 +97,8 @@ class OrderController extends Controller
 //        dd(Order::find($id));
         return view('/market/order/show', [
             'menus' => ServiceType::all() ,
-//            'orders' => Order::all() ,
-//            'services' => Service::all(),
+           'orders' => Order::all() ,
+           'services' => Service::all(),
 //            'serviceorder' => ServiceOrder::find($id) ,
 //            'userorder' => UserOrder::all() ,
 
@@ -112,20 +112,22 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(ServiceType $order)
+    public function edit(ServiceType $id)
     {
 
         return view('/market/order/edit', [
-            'orders' => ServiceType::all() ,
-
+            'menus' => ServiceType::all() ,
+            'orders' =>$id    ,
+            'services' => Service::all(),
         ]);
 //        return "HOLLA!!";
 
     }
+
 public function type(ServiceType $id)
     {
 
-        return view('/market/order/edit_type', [
+        return view('/market/order/edit', [
             'orders' => $id ,
         ]);
 //        return "HOLLA!!";
@@ -147,7 +149,8 @@ public function type(ServiceType $id)
 //        $order->status = "مكتمل جزئيا ";
 ////        $order->status = $request->choice ;
 //        $order->save();
-        $type=ServiceType::find($id);
+        @dd($request,$id);
+        $type=Order::find($id);
         $type->name =$request->name;
         $type->save();
         return redirect('/admin/order/show');

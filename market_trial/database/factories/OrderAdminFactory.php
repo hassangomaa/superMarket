@@ -21,8 +21,8 @@ class OrderAdminFactory extends Factory
 //            'name' => "🌐 زيارات مواقع الويب من كندا< ",
 //            'name' => "🌐 زيارات مواقع الويب من كندا< ",
 //            'details' => "♔ البدأ : 1 ~ 120 ساعة" ,
-            'orderid' => fake()->randomDigitNotZero(),
-            'userid' => fake()->randomDigitNotZero(),
+            'order_id' => fake()->randomDigitNotZero(),
+            'user_id' => fake()->randomDigitNotZero(),
 
         ];
     }

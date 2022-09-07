@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('orderid');
-            $table->string('userid');
+//            $table->string('orderid');
+            $table->string('user_id');
+            $table->string('status_id');
 //            $table->string('details');
-            $table->string('status')->default('قيد الانتظار');
+//            $table->string('status')->default('قيد الانتظار');
              $table->string('link');
             $table->integer('price')->unsigned();//number
             $table->integer('quantity')->unsigned();//number
