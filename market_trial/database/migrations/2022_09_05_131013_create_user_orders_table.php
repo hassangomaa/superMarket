@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        ////////////wrong
         Schema::create('user_orders', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');

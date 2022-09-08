@@ -149,7 +149,7 @@ public function type(ServiceType $id)
 //        $order->status = "مكتمل جزئيا ";
 ////        $order->status = $request->choice ;
 //        $order->save();
-        @dd($request,$id);
+//        @dd($request,$id);
         $type=Order::find($id);
         $type->name =$request->name;
         $type->save();

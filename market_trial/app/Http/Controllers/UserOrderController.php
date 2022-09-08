@@ -134,7 +134,9 @@ class UserOrderController extends Controller
         //
 //        dd($id);
         Order::where('id', $id)->delete();
-       return redirect('admin/order/requset');
+//        dd( Order::where('id', $id)->delete()->toSql() );
+
+        return redirect('admin/order/requset');
 //        return view('/market/order/index', [
 //            'orders' => Order::all() ,
 //            'services' => Service::all(),

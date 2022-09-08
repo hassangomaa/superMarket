@@ -18,4 +18,5 @@ class StatusOrder extends Model
     {
         return $this->hasMany(Order::class);
     }
+
 }
