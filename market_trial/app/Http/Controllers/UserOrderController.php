@@ -22,7 +22,7 @@ class UserOrderController extends Controller
             'orders' => Order::all() ,
             'services' => Service::all(),
             'Status' => StatusOrder::all(),
-
+/////////////////////////////
         ]);
 
     }
